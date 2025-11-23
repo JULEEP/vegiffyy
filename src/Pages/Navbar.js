@@ -6,10 +6,10 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Restaurants', href: '#restaurants' },
-    { name: 'How It Works', href: '#how-it-works' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Why Us', href: '#why-us' },
     { name: 'Join Us', href: '#join' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact Us', href: '#contact' },
   ];
 
   const scrollToSection = (href) => {
@@ -57,12 +57,12 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <button 
               onClick={() => scrollToSection('#join')}
-              className="hidden sm:flex items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:scale-105"
+              className="hidden sm:flex items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:scale-105"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               </svg>
-              Order Now
+              Install Now
             </button>
 
             {/* Mobile menu button */}
@@ -97,12 +97,12 @@ const Navbar = () => {
               <div className="pt-3">
                 <button 
                   onClick={() => scrollToSection('#join')}
-                  className="w-full flex justify-center items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-4 rounded-xl transition-all duration-300"
+                  className="w-full flex justify-center items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-4 rounded-full transition-all duration-300"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                   </svg>
-                  Order Now
+                  Install Now
                 </button>
               </div>
             </div>

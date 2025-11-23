@@ -8,14 +8,25 @@ const BecomePartner = () => {
     setIsVisible(true);
   }, []);
 
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '9391973675';
+    const message = 'Hello! I want to join VEGIFFYY as a partner. Please provide more information.';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleCallClick = () => {
+    window.location.href = 'tel:6309100101';
+  };
+
   const partnerTypes = [
     {
       id: 'vendor',
       title: 'Become a Vendor',
       icon: '🏪',
       description: 'Join as a restaurant partner and grow your business',
-      color: 'bg-orange-500',
-      gradient: 'from-orange-500 to-orange-600',
+      color: 'bg-green-600',
+      gradient: 'from-green-600 to-green-700',
       features: [
         'Reach 10K+ hungry customers',
         'Zero commission for first month',
@@ -35,8 +46,8 @@ const BecomePartner = () => {
       title: 'Become Ambassador',
       icon: '🌟',
       description: 'Join our ambassador program and earn while promoting',
-      color: 'bg-purple-500',
-      gradient: 'from-purple-500 to-purple-600',
+      color: 'bg-green-700',
+      gradient: 'from-green-700 to-green-800',
       features: [
         'Earn up to ₹15,000 per month',
         'Flexible working hours',
@@ -80,7 +91,7 @@ const BecomePartner = () => {
   const currentPartner = partnerTypes.find(partner => partner.id === activeTab);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-orange-50 py-20 overflow-hidden">
+    <div id="join" className="min-h-screen bg-gradient-to-br from-green-50 to-white py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -94,7 +105,7 @@ const BecomePartner = () => {
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
             Join{' '}
-            <span className="bg-gradient-to-r from-green-600 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
               VEGIFFYY Family
             </span>
           </h1>
@@ -153,7 +164,7 @@ const BecomePartner = () => {
 
               {/* CTA Button */}
               <button className="w-full bg-white text-gray-900 py-4 px-6 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg">
-                Join Now - It's FREE! 🚀
+                Join Now! 🚀
               </button>
             </div>
 
@@ -186,10 +197,10 @@ const BecomePartner = () => {
                 {successStories.map((story, index) => (
                   <div 
                     key={index}
-                    className="bg-gradient-to-r from-green-50 to-orange-50 rounded-2xl p-6 border border-green-200 hover:shadow-lg transition-all duration-300"
+                    className="bg-gradient-to-r from-green-50 to-white rounded-2xl p-6 border border-green-200 hover:shadow-lg transition-all duration-300"
                   >
                     <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-2xl text-white">
+                      <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center text-2xl text-white">
                         {story.image}
                       </div>
                       <div className="flex-1">
@@ -244,7 +255,7 @@ const BecomePartner = () => {
                   <option>City Ambassador</option>
                 </select>
 
-                <button className="w-full bg-gradient-to-r from-green-600 to-orange-600 text-white py-4 px-6 rounded-xl font-bold text-lg hover:from-green-700 hover:to-orange-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                <button className="w-full bg-gradient-to-r from-green-600 to-green-800 text-white py-4 px-6 rounded-xl font-bold text-lg hover:from-green-700 hover:to-green-900 transform hover:scale-105 transition-all duration-300 shadow-lg">
                   Apply Now - Get Instant Response! 📲
                 </button>
 
@@ -258,7 +269,7 @@ const BecomePartner = () => {
 
         {/* Bottom CTA Section */}
         <div className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-green-600 to-orange-600 rounded-3xl p-12 text-white shadow-2xl">
+          <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-3xl p-12 text-white shadow-2xl">
             <h2 className="text-4xl font-bold mb-4">
               Ready to Start Your Success Story?
             </h2>
@@ -268,20 +279,26 @@ const BecomePartner = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg">
-                📞 Call Us: +91-9876543210
+              <button 
+                onClick={handleCallClick}
+                className="bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg"
+              >
+                📞 Call Us: 6309100101
               </button>
-              <button className="bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg border border-white">
-                💬 WhatsApp Quick Apply
+              <button 
+                onClick={handleWhatsAppClick}
+                className="bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg border border-white"
+              >
+                💬 WhatsApp: 9391973675
               </button>
             </div>
 
             <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               {[
-                { number: '0₹', text: 'No Registration Fees' },
                 { number: '2hrs', text: 'Quick Onboarding' },
                 { number: '24/7', text: 'Dedicated Support' },
-                { number: '100%', text: 'Vegetarian Promise' }
+                { number: '100%', text: 'Vegetarian Promise' },
+                { number: '0₹', text: 'No Hidden Fees' }
               ].map((item, index) => (
                 <div key={index} className="bg-white bg-opacity-20 rounded-xl p-4 backdrop-blur-sm">
                   <div className="text-2xl font-bold">{item.number}</div>

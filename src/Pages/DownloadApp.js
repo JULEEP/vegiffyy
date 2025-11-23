@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import homeImage from '../images/home.jpeg'; // Adjust path as needed
 
 const DownloadApp = () => {
   const [currentFeature, setCurrentFeature] = useState(0);
@@ -47,49 +48,49 @@ const DownloadApp = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white py-20 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-white to-green-50 py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-green-50 rounded-full px-6 py-3 border border-green-200 mb-8">
-            <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-            <span className="text-green-700 font-medium">Available on iOS & Android</span>
+          <div className="inline-flex items-center space-x-3 bg-white rounded-full px-8 py-4 border-2 border-green-200 shadow-2xl mb-8 animate-pulse">
+            <span className="w-3 h-3 bg-green-500 rounded-full animate-bounce"></span>
+            <span className="text-green-800 font-bold text-lg">Available on iOS & Android</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
             Download{' '}
-            <span className="text-green-600">
+            <span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">
               VEGIFFYY App
             </span>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
             Get the best vegetarian food experience on your phone. Order food, track delivery, 
             and enjoy great deals with our easy-to-use mobile app.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Content */}
-          <div className="space-y-8">
+          <div className="space-y-10">
             {/* Features Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {features.map((feature, index) => (
                 <div 
                   key={index}
-                  className={`bg-green-50 rounded-xl p-6 border border-green-200 transition-all duration-300 ${
-                    index === currentFeature ? 'scale-105 bg-green-100' : 'scale-100'
-                  } hover:scale-105 hover:bg-green-100 group`}
+                  className={`bg-white rounded-2xl p-6 border-2 border-green-200 shadow-2xl transition-all duration-500 group ${
+                    index === currentFeature ? 'scale-105 bg-green-50 shadow-3xl' : 'scale-100'
+                  } hover:scale-105 hover:shadow-3xl`}
                 >
-                  <div className="flex items-center space-x-4">
-                    <div className={`w-14 h-14 ${feature.color} rounded-2xl flex items-center justify-center text-2xl text-white`}>
+                  <div className="flex items-center space-x-5">
+                    <div className={`w-16 h-16 ${feature.color} rounded-2xl flex items-center justify-center text-3xl text-white transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg`}>
                       {feature.icon}
                     </div>
                     <div>
-                      <h4 className="text-gray-900 font-bold text-lg">
+                      <h4 className="text-gray-900 font-black text-xl mb-2">
                         {feature.title}
                       </h4>
-                      <p className="text-gray-600 text-sm mt-1">
+                      <p className="text-gray-700 font-medium">
                         {feature.description}
                       </p>
                     </div>
@@ -99,19 +100,19 @@ const DownloadApp = () => {
             </div>
 
             {/* App Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {appStats.map((stat, index) => (
                 <div 
                   key={index}
-                  className="text-center p-4 bg-green-50 rounded-lg border border-green-200 hover:bg-green-100 transition-all duration-300 group"
+                  className="text-center p-6 bg-white rounded-2xl border-2 border-green-200 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 group"
                 >
-                  <div className="text-2xl mb-2">
+                  <div className="text-3xl mb-3 transform group-hover:scale-110 transition-all duration-300">
                     {stat.icon}
                   </div>
-                  <div className="text-2xl font-bold text-green-600">
+                  <div className="text-3xl font-black text-green-600 mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-gray-600 text-xs mt-1">
+                  <div className="text-gray-800 font-bold text-sm">
                     {stat.label}
                   </div>
                 </div>
@@ -119,36 +120,36 @@ const DownloadApp = () => {
             </div>
 
             {/* Download Buttons */}
-            <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row gap-4">
+            <div className="space-y-6">
+              <div className="flex flex-col sm:flex-row gap-6">
                 {/* App Store Button */}
-                <button className="flex items-center justify-center space-x-3 bg-black hover:bg-gray-800 text-white py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 group border border-gray-300">
-                  <div className="text-3xl">📱</div>
+                <button className="flex items-center justify-center space-x-4 bg-black hover:bg-gray-800 text-white py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-105 group border-2 border-gray-700 shadow-2xl hover:shadow-3xl">
+                  <div className="text-4xl">📱</div>
                   <div className="text-left">
-                    <div className="text-xs text-gray-400">Download on the</div>
-                    <div className="text-lg font-bold">App Store</div>
+                    <div className="text-sm text-gray-400">Download on the</div>
+                    <div className="text-xl font-black">App Store</div>
                   </div>
                 </button>
 
                 {/* Google Play Button */}
-                <button className="flex items-center justify-center space-x-3 bg-green-600 hover:bg-green-700 text-white py-4 px-6 rounded-xl transition-all duration-300 hover:scale-105 group border border-green-500">
-                  <div className="text-3xl">🤖</div>
+                <button className="flex items-center justify-center space-x-4 bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-105 group border-2 border-green-500 shadow-2xl hover:shadow-3xl">
+                  <div className="text-4xl">🤖</div>
                   <div className="text-left">
-                    <div className="text-xs text-green-200">Get it on</div>
-                    <div className="text-lg font-bold">Google Play</div>
+                    <div className="text-sm text-green-200">Get it on</div>
+                    <div className="text-xl font-black">Google Play</div>
                   </div>
                 </button>
               </div>
 
               {/* QR Code Section */}
-              <div className="bg-green-50 rounded-xl p-6 border border-green-200 text-center">
-                <h4 className="text-gray-900 font-semibold mb-3">Scan to Download</h4>
-                <div className="bg-white p-4 rounded-lg inline-block">
-                  <div className="w-32 h-32 bg-green-500 rounded-lg flex items-center justify-center text-white text-4xl">
+              <div className="bg-white rounded-2xl p-8 border-2 border-green-200 shadow-2xl text-center">
+                <h4 className="text-gray-900 font-black text-xl mb-4">Scan to Download</h4>
+                <div className="bg-gradient-to-br from-green-50 to-white p-6 rounded-2xl inline-block border-2 border-green-200">
+                  <div className="w-40 h-40 bg-green-500 rounded-2xl flex items-center justify-center text-white text-6xl shadow-2xl">
                     📲
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm mt-3">
+                <p className="text-gray-700 font-medium text-lg mt-4">
                   Point your camera at the QR code to download
                 </p>
               </div>
@@ -159,8 +160,8 @@ const DownloadApp = () => {
           <div className="relative">
             {/* Phone Mockup */}
             <div 
-              className={`relative mx-auto w-80 h-[600px] bg-gray-800 rounded-[3rem] border-[14px] border-gray-700 shadow-xl transform transition-all duration-300 ${
-                isPhoneHovered ? 'scale-105' : 'scale-100'
+              className={`relative mx-auto w-80 h-[600px] bg-gray-800 rounded-[3rem] border-[14px] border-gray-700 shadow-2xl transform transition-all duration-500 ${
+                isPhoneHovered ? 'scale-110' : 'scale-100'
               }`}
               onMouseEnter={() => setIsPhoneHovered(true)}
               onMouseLeave={() => setIsPhoneHovered(false)}
@@ -169,95 +170,48 @@ const DownloadApp = () => {
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-gray-700 rounded-b-2xl z-20"></div>
               
               {/* Phone Screen */}
-              <div className="absolute inset-4 bg-white rounded-3xl overflow-hidden border border-gray-200">
-                {/* App Interface Simulation */}
-                <div className="p-6 h-full flex flex-col">
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-sm">🥗</span>
-                      </div>
-                      <span className="text-gray-900 font-bold">VEGIFFYY</span>
-                    </div>
-                    <div className="text-gray-600 text-sm">12:30</div>
-                  </div>
-
-                  {/* Main Content */}
-                  <div className="flex-1 space-y-4">
-                    {/* Welcome Message */}
-                    <div className="bg-green-50 rounded-xl p-4">
-                      <h3 className="text-gray-900 font-bold text-lg mb-2">Hungry? Order Now!</h3>
-                      <p className="text-gray-600 text-sm">Get 40% off on your first order</p>
-                    </div>
-
-                    {/* Quick Actions */}
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { icon: '🍕', label: 'Pizza', color: 'bg-green-500' },
-                        { icon: '🍔', label: 'Burgers', color: 'bg-green-600' },
-                        { icon: '🍜', label: 'Chinese', color: 'bg-green-700' },
-                        { icon: '🍦', label: 'Desserts', color: 'bg-green-800' }
-                      ].map((action, index) => (
-                        <div 
-                          key={index}
-                          className={`${action.color} rounded-xl p-3 text-center cursor-pointer`}
-                        >
-                          <div className="text-2xl mb-1 text-white">{action.icon}</div>
-                          <div className="text-white text-xs font-semibold">{action.label}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Recent Orders */}
-                    <div className="bg-gray-50 rounded-xl p-4">
-                      <h4 className="text-gray-900 font-semibold mb-3">Recent Orders</h4>
-                      <div className="space-y-2">
-                        {['Veg Pizza - Delivered', 'Paneer Burger - Cooking', 'Noodles - On the way'].map((item, index) => (
-                          <div key={index} className="flex items-center space-x-2 text-gray-600 text-sm">
-                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                            <span>{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Navigation Bar */}
-                  <div className="flex justify-around pt-4 border-t border-gray-200">
-                    {['🏠', '🔍', '🛒', '👤'].map((icon, index) => (
-                      <button key={index} className="text-2xl text-gray-400 hover:text-green-600 transition-colors duration-200">
-                        {icon}
-                      </button>
-                    ))}
-                  </div>
+              <div className="absolute inset-4 bg-white rounded-3xl overflow-hidden border-2 border-gray-200">
+                {/* App Interface with Home Image */}
+                <div className="h-full w-full">
+                  <img 
+                    src={homeImage} 
+                    alt="VEGIFFYY App Home Screen" 
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
+                  {/* Overlay for better visibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                 </div>
               </div>
 
               {/* Home Indicator */}
               <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-400 rounded-full"></div>
             </div>
+
+            {/* Floating Elements */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-400 rounded-full animate-bounce"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-green-300 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
           </div>
         </div>
 
         {/* Platform Badges */}
         <div className="mt-20 text-center">
-          <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose VEGIFFYY App?</h3>
+          <div className="bg-white rounded-3xl p-12 border-2 border-green-200 shadow-2xl">
+            <h3 className="text-4xl font-black text-gray-900 mb-10">Why Choose VEGIFFYY App?</h3>
             <div className="flex flex-wrap justify-center gap-6">
               {[
                 { icon: '🥗', text: 'Pure Vegetarian' },
                 { icon: '🚚', text: 'Fast Delivery' },
                 { icon: '💰', text: 'Best Prices' },
                 { icon: '🛡️', text: 'Secure Payment' },
-                { icon: '⭐', text: 'Verified Vendors' }
+                { icon: '⭐', text: 'Verified Vendors' },
+                { icon: '🎁', text: 'Daily Offers' }
               ].map((badge, index) => (
                 <div 
                   key={index}
-                  className="flex items-center space-x-3 bg-white rounded-lg px-4 py-3 border border-green-200 hover:bg-green-100 transition-all duration-300 group"
+                  className="flex items-center space-x-4 bg-gradient-to-br from-green-50 to-white rounded-2xl px-6 py-4 border-2 border-green-200 hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
                 >
-                  <span className="text-2xl">{badge.icon}</span>
-                  <span className="text-gray-900 font-semibold">{badge.text}</span>
+                  <span className="text-3xl transform group-hover:scale-110 transition-all duration-300">{badge.icon}</span>
+                  <span className="text-gray-900 font-black text-lg">{badge.text}</span>
                 </div>
               ))}
             </div>

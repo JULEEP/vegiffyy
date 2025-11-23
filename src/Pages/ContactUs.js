@@ -17,14 +17,14 @@ const ContactUs = () => {
       icon: '📧',
       title: 'Email Us',
       description: 'Send us an email anytime for recipe suggestions or support',
-      details: 'support@vegiffy.com',
+      details: 'support@vegiffyy.com',
       gradient: 'from-green-400 to-emerald-500'
     },
     {
       icon: '📞',
       title: 'Call Us',
       description: 'Speak directly with our food experts during business hours',
-      details: '+91-9876543210',
+      details: '+91-6309100101',
       gradient: 'from-orange-400 to-amber-500'
     },
     {
@@ -38,7 +38,7 @@ const ContactUs = () => {
       icon: '🏪',
       title: 'Visit Office',
       description: 'Schedule a meeting at our headquarters for partnerships',
-      details: 'Delhi, India',
+      details: 'Hyderabad, Telangana',
       gradient: 'from-yellow-400 to-orange-500'
     }
   ];
@@ -329,7 +329,7 @@ const ContactUs = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <div className="text-white font-bold text-lg bg-white/20 px-4 py-2 rounded-xl border border-white/30">
-              🚀 Quick Support: +91-9876543210
+              🚀 Quick Support: +91-6309100101
             </div>
             <button className="bg-white text-green-600 hover:bg-green-50 font-semibold py-2 px-4 rounded-xl transition-all duration-300 hover:scale-105 flex items-center text-sm">
               <span className="mr-2">📞</span>

@@ -30,7 +30,7 @@ const Footer = () => {
     {
       title: 'Join Our Team',
       links: [
-        { name: 'Delivery Partners', href: '#' },
+        { name: 'Vegiffyy Express', href: '#' },
         { name: 'Become Ambassador', href: '#' },
         { name: 'Careers', href: '#' },
         { name: 'Internships', href: '#' }
