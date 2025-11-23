@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import founderImage from '../images/founder.jpeg'; // Adjust path as needed
 
 const AboutVegiffy = () => {
   const [currentMilestone, setCurrentMilestone] = useState(0);
@@ -39,7 +40,7 @@ const AboutVegiffy = () => {
       name: 'Rahul Jain',
       role: 'Founder & President',
       expertise: 'Visionary Leader & Business Strategist',
-      avatar: '👨‍💼',
+      image: founderImage,
       color: 'bg-gradient-to-br from-green-600 to-green-800'
     }
   ];
@@ -199,9 +200,23 @@ const AboutVegiffy = () => {
               {/* Background Pattern */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
               
-              <div className="w-40 h-40 mx-auto bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center text-6xl text-white mb-8 transform group-hover:scale-110 transition-all duration-500 shadow-2xl relative z-10">
-                {teamMembers[0].avatar}
+              {/* Founder Image with Better Cropping */}
+              <div className="relative mx-auto mb-8">
+                <div className="w-48 h-48 mx-auto bg-gradient-to-br from-green-500 to-green-700 rounded-full p-2 shadow-2xl transform group-hover:scale-110 transition-all duration-500">
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner">
+                    <img 
+                      src={teamMembers[0].image} 
+                      alt={teamMembers[0].name}
+                      className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-all duration-500"
+                      style={{ objectPosition: 'center 25%' }} // Adjust this to show face properly
+                    />
+                  </div>
+                </div>
+                {/* Decorative Elements */}
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-400 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-green-300 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
               </div>
+              
               <h4 className="text-gray-900 font-black text-3xl mb-4 relative z-10">{teamMembers[0].name}</h4>
               <div className="text-green-600 font-bold text-xl mb-4 relative z-10">{teamMembers[0].role}</div>
               <div className="text-gray-700 text-lg font-medium mb-6 relative z-10">{teamMembers[0].expertise}</div>
