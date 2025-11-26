@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import vegiffyLogo from '../images/veggifylogo.jpeg'; // Adjust path if needed
-import jeipexLogo from '../images/JEIPLX.jpg'; // Import JEIPEX logo
+import jeipexLogo from '../images/JEIPLX.png'; // Import JEIPEX logo
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
