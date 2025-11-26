@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import vegiffyLogo from '../images/veggifylogo.jpeg'; // Adjust path if needed
+import jeipexLogo from '../images/JEIPLX.jpg'; // Import JEIPEX logo
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,8 +54,26 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Right Side - Button */}
+          {/* Right Side - Button and JEIPEX Logo */}
           <div className="flex items-center space-x-4">
+            {/* JEIPEX Logo and Text - Hidden on mobile */}
+            <div className="hidden lg:flex items-center space-x-3 bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2">
+              <div className="text-white text-xs text-center">
+                <div>Powered by</div>
+                <div>Nemishhrree</div>
+              </div>
+              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md overflow-hidden">
+                <img 
+                  src={jeipexLogo} 
+                  alt="JEIPEX Logo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-white text-xs font-bold">
+                JEIPLX
+              </div>
+            </div>
+
             <button 
               onClick={() => scrollToSection('#join')}
               className="hidden sm:flex items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:scale-105"
@@ -94,6 +113,25 @@ const Navbar = () => {
                   {item.name}
                 </button>
               ))}
+              
+              {/* JEIPEX Section in Mobile Menu */}
+              <div className="flex items-center justify-center space-x-3 pt-3 border-t border-green-500 mt-3">
+                <div className="text-white text-xs text-center">
+                  <div>Powered by Nemishhrree</div>
+                  <div>Operated by</div>
+                </div>
+                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md overflow-hidden">
+                  <img 
+                    src={jeipexLogo} 
+                    alt="JEIPEX Logo" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-white text-xs font-bold">
+                  JEIPLX
+                </div>
+              </div>
+
               <div className="pt-3">
                 <button 
                   onClick={() => scrollToSection('#join')}

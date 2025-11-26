@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import vegiffyLogo from '../images/veggifylogo.jpeg'; // Adjust path if needed
+import jeipexLogo from '../images/JEIPLX.jpg'; // Import JEIPEX logo
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -162,6 +163,24 @@ const Footer = () => {
               {/* Copyright */}
               <div className="text-white text-sm font-medium">
                 © {currentYear} VEGIFFYY - Pure Veg Food Platform. All rights reserved.
+              </div>
+
+              {/* Powered By Section with JEIPEX Logo */}
+              <div className="flex items-center space-x-3">
+                <div className="text-green-100 text-sm font-medium text-center">
+                  <div>Powered by Nemishhrree</div>
+                  <div>Operated by</div>
+                </div>
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg overflow-hidden">
+                  <img 
+                    src={jeipexLogo} 
+                    alt="JEIPEX Logo" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-green-100 text-sm font-bold">
+                  JEIPLX
+                </div>
               </div>
 
               {/* Legal Links */}
