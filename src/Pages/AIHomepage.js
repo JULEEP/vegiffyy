@@ -51,6 +51,11 @@ const VegiffyHomepage = () => {
     }
   ];
 
+  // Open Play Store link (same for both buttons)
+  const openPlayStore = () => {
+    window.open('https://play.google.com/store/apps/details?id=com.veggify.veegify&pli=1', '_blank');
+  };
+
   return (
     <div id="home" className="min-h-screen bg-gradient-to-br from-white to-green-50 pt-20 overflow-hidden">
       {/* Hero Section */}
@@ -120,14 +125,20 @@ const VegiffyHomepage = () => {
               ))}
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Both open Play Store */}
             <div className="flex flex-col sm:flex-row gap-6 pt-6">
-              <button className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 flex items-center justify-center shadow-2xl hover:shadow-3xl transform hover:scale-105">
+              <button 
+                onClick={openPlayStore}
+                className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 flex items-center justify-center shadow-2xl hover:shadow-3xl transform hover:scale-105"
+              >
                 <span className="mr-3 text-xl">🚀</span>
                 Get Started Now
                 <span className="ml-3 text-xl animate-pulse">→</span>
               </button>
-              <button className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105">
+              <button 
+                onClick={openPlayStore}
+                className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
                 <span className="mr-3 text-xl">📱</span>
                 Download App
               </button>

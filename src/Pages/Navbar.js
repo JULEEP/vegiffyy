@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import vegiffyLogo from '../images/veggifylogo.jpeg'; // Adjust path if needed
-import jeipexLogo from '../images/JEIPLX.png'; // Import JEIPEX logo
+import vegiffyLogo from '../images/veggifylogo.png'; // Adjust path if needed
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +8,6 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About Us', href: '#about' },
     { name: 'Why Us', href: '#why-us' },
-    { name: 'Join Us', href: '#join' },
     { name: 'Contact Us', href: '#contact' },
   ];
 
@@ -21,21 +19,46 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const openPlayStore = () => {
+    window.open('https://play.google.com/store/apps/details?id=com.veggify.veegify&pli=1', '_blank');
+    setIsMenuOpen(false);
+  };
+
   return (
-    <nav className="bg-green-600 fixed w-full z-50 h-20 shadow-lg">
+    <nav className="bg-gradient-to-r from-green-600 to-green-700 fixed w-full z-50 h-20 shadow-lg">
+      {/* Custom style for the glowing animation */}
+      <style>
+        {`
+          @keyframes softGlow {
+            0% {
+              box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+            }
+            70% {
+              box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+            }
+            100% {
+              box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+          }
+          .glow-button {
+            animation: softGlow 2s infinite;
+          }
+        `}
+      </style>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex justify-between items-center h-full">
           {/* Left Side - Logo */}
           <div className="flex items-center">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center overflow-hidden">
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-md">
                 <img 
                   src={vegiffyLogo} 
                   alt="Vegiffy Logo" 
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-2xl font-bold text-white">
+              <span className="text-2xl font-bold text-white drop-shadow-md">
                 VEGIFFYY
               </span>
             </div>
@@ -47,39 +70,23 @@ const Navbar = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-white hover:text-yellow-200 font-semibold transition-colors duration-200 text-lg"
+                className="text-white hover:text-yellow-200 font-semibold transition-all duration-200 text-lg relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-yellow-300 after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.name}
               </button>
             ))}
           </div>
 
-          {/* Right Side - Button and JEIPEX Logo */}
+          {/* Right Side - Button and Mobile Menu Toggle */}
           <div className="flex items-center space-x-4">
-            {/* JEIPEX Logo and Text - Hidden on mobile */}
-            <div className="hidden lg:flex items-center space-x-3 bg-white/20 backdrop-blur-sm rounded-xl px-4 py-2">
-              <div className="text-white text-xs text-center">
-                <div>Powered by</div>
-                <div>Nemishhrree</div>
-              </div>
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md overflow-hidden">
-                <img 
-                  src={jeipexLogo} 
-                  alt="JEIPEX Logo" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="text-white text-xs font-bold">
-                JEIPLX
-              </div>
-            </div>
-
             <button 
-              onClick={() => scrollToSection('#join')}
-              className="hidden sm:flex items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:scale-105"
+              onClick={openPlayStore}
+              className="hidden sm:flex items-center gap-2 bg-white text-green-600 font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 glow-button"
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zM14.5 12.5l2.5 2.5-3.5 3.5-2.5-2.5 3.5-3.5zM15.5 11.5l-3.5 3.5-2.5-2.5 3.5-3.5 2.5 2.5z"/>
+                <path d="M21.201 11.3l-5.5-3.2-2.2 2.2 2.5 2.5 5.2-1.5a1 1 0 0 0 0-1.8z"/>
+                <path d="M13.5 8.5l2.2-2.2 5.5 3.2-5.2 1.5-2.5-2.5z"/>
               </svg>
               Install Now
             </button>
@@ -103,42 +110,26 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden border-t border-green-500 mt-2">
-            <div className="px-2 pt-4 pb-4 space-y-3 bg-green-700 rounded-xl mt-2">
+            <div className="px-2 pt-4 pb-4 space-y-3 bg-gradient-to-br from-green-700 to-green-800 rounded-xl mt-2 shadow-xl">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-white hover:bg-green-600 block px-4 py-3 rounded-lg text-base font-semibold transition-colors duration-200 w-full text-left"
+                  className="text-white hover:bg-green-600 block px-4 py-3 rounded-lg text-base font-semibold transition-all duration-200 w-full text-left"
                 >
                   {item.name}
                 </button>
               ))}
               
-              {/* JEIPEX Section in Mobile Menu */}
-              <div className="flex items-center justify-center space-x-3 pt-3 border-t border-green-500 mt-3">
-                <div className="text-white text-xs text-center">
-                  <div>Powered by Nemishhrree</div>
-                  <div>Operated by</div>
-                </div>
-                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-md overflow-hidden">
-                  <img 
-                    src={jeipexLogo} 
-                    alt="JEIPEX Logo" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="text-white text-xs font-bold">
-                  JEIPLX
-                </div>
-              </div>
-
               <div className="pt-3">
                 <button 
-                  onClick={() => scrollToSection('#join')}
-                  className="w-full flex justify-center items-center bg-white text-green-600 hover:bg-yellow-50 font-bold py-3 px-4 rounded-full transition-all duration-300"
+                  onClick={openPlayStore}
+                  className="w-full flex justify-center items-center gap-2 bg-white text-green-600 font-bold py-3 px-4 rounded-full transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 glow-button"
                 >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zM14.5 12.5l2.5 2.5-3.5 3.5-2.5-2.5 3.5-3.5zM15.5 11.5l-3.5 3.5-2.5-2.5 3.5-3.5 2.5 2.5z"/>
+                    <path d="M21.201 11.3l-5.5-3.2-2.2 2.2 2.5 2.5 5.2-1.5a1 1 0 0 0 0-1.8z"/>
+                    <path d="M13.5 8.5l2.2-2.2 5.5 3.2-5.2 1.5-2.5-2.5z"/>
                   </svg>
                   Install Now
                 </button>

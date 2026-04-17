@@ -70,6 +70,16 @@ const WhyChooseVegiffy = () => {
     return () => clearInterval(reasonInterval);
   }, []);
 
+  // Open Play Store link for Download App button
+  const openPlayStore = () => {
+    window.open('https://play.google.com/store/apps/details?id=com.veggify.veegify&pli=1', '_blank');
+  };
+
+  // Open Vendor Portal link for Become Partner button
+  const openVendorPortal = () => {
+    window.open('https://vendor.vegiffy.in', '_blank');
+  };
+
   return (
     <div id="why-us" className="min-h-screen bg-gradient-to-br from-white to-green-50 pt-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -252,12 +262,18 @@ const WhyChooseVegiffy = () => {
               Whether you're a customer, vendor, or delivery partner - VEGIFFYY has something for everyone.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-black py-5 px-12 rounded-2xl transition-all duration-300 flex items-center shadow-2xl hover:shadow-3xl transform hover:scale-105">
+              <button 
+                onClick={openPlayStore}
+                className="bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-black py-5 px-12 rounded-2xl transition-all duration-300 flex items-center shadow-2xl hover:shadow-3xl transform hover:scale-105"
+              >
                 <span className="mr-3 text-xl">📱</span>
                 Download App
                 <span className="ml-3 text-xl animate-pulse">→</span>
               </button>
-              <button className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-black py-5 px-12 rounded-2xl transition-all duration-300 flex items-center shadow-2xl hover:shadow-3xl transform hover:scale-105">
+              <button 
+                onClick={openVendorPortal}
+                className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-black py-5 px-12 rounded-2xl transition-all duration-300 flex items-center shadow-2xl hover:shadow-3xl transform hover:scale-105"
+              >
                 <span className="mr-3 text-xl">👥</span>
                 Become Partner
               </button>

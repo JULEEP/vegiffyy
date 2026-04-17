@@ -39,9 +39,9 @@ const HomePage = () => {
           <DownloadApp />
         </section>
 
-          <section id="becomepartnet">
+          {/* <section id="becomepartnet">
           <BecomePartner />
-        </section>
+        </section> */}
         
         <section id="contact">
           <ContactUs />
